@@ -1,0 +1,26 @@
+﻿@model List<WebUI.Models.CategoryListModel>
+<h1>Ürün Listesi</h1>
+<form>
+    <input class="btn btn-primary" type="submit" value="Yeni Giriş" formaction="/Category/Edit/" />
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kategori İsmi</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td><a class="btn btn-danger" href="/Category/Delete/@item.CategoryId">Sil</a></td>
+                <td><a class="btn btn-success" href="/Category/Edit/@item.CategoryId">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

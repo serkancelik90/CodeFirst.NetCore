@@ -1,0 +1,32 @@
+﻿@model List<WebUI.Models.ProductListModel>
+<h1>Ürün Listesi</h1>
+<form>
+    <input class="btn btn-primary" type="submit" value="Yeni Giriş" formaction="/Product/Edit/" />
+</form>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ürün İsmi</th>
+            <th>Kategori İsmi</th>
+            <th>Stok Adedi</th>
+            <th>Birim Fiyat</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.CategoryName</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.UnitInPrice</td>
+                <td><a class="btn btn-danger" href="/Product/Delete/@item.ProductId">Sil</a></td>
+                <td><a class="btn btn-success" href="/Product/Edit/@item.ProductId">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

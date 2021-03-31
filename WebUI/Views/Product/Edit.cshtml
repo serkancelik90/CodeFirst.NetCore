@@ -1,0 +1,49 @@
+﻿@model WebUI.Models.ProductEditViewModel
+
+<h1>@(Model.ProductId==0?"Ekle":"Güncelle")</h1>
+
+<form method="post">
+    <input type="hidden" name="ProductId" value="@Model.ProductId" />
+    <div class="row">
+        <div class="mb-3">
+            <label for="productName" class="form-label">Ürün Adı</label>
+            <input type="text" class="form-control" name="ProductName" id="productName" placeholder="Ürün Adı" value="@Model.ProductName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Kategoriler</label>
+            <select class="form-control" name="CategoryId">
+                @foreach (var item in Model.Categories)
+                {
+                    if (Model.CategoryId == item.CategoryId)
+                    {
+                        <option value="@item.CategoryId" selected>@item.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@item.CategoryId">@item.CategoryName</option>
+                    }
+
+
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label for="unitInPrice" class="form-label">Birim Fiyat</label>
+            <input type="text" class="form-control" name="UnitInPrice" id="unitInPrice" placeholder="Birim Fiyat" value="@Model.UnitInPrice">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label for="unitsInStock" class="form-label">Ürün Adı</label>
+            <input type="text" class="form-control" name="UnitsInStock" id="unitInStock" placeholder="Stok Adedi"value="@Model.UnitsInStock">
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary">@(Model.ProductId==0?"Ekle":"Güncelle")</button>
+    </div>
+
+</form>

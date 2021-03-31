@@ -1,0 +1,17 @@
+﻿@model WebUI.Models.CategoryEditViewModel
+
+<h1>@(Model.CategoryId==0?"Ekle":"Güncelle")</h1>
+
+<form method="post">
+    <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+    <div class="row">
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Kategori Adı</label>
+            <input type="text" class="form-control" name="CategoryName" id="categoryName" placeholder="Kategori Adı" value="@Model.CategoryName">
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary">@(Model.CategoryId==0?"Ekle":"Güncelle")</button>
+    </div>
+
+</form>
